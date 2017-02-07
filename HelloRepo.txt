@@ -2,3 +2,4 @@ Hello Repo! This is a repo Tester
 Just decided to add this as a second test with a branch.
 
 This text was added from my mac!
+Now I added more text! Ill keep doing it until I’m comfy
