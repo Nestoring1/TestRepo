@@ -1,0 +1,95 @@
+//
+//  main.cpp
+//  NIM
+//
+//  Created by Nestor Macias on Feb/20/15.
+//  Copyright (c) 2015 Nestor Macias. All rights reserved.
+//
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+    cout << "Welcome to NIM!" << endl;
+    cout << endl;
+    cout << "Players will take turns removing 1, 2, or 3 sticks from the initial." << endl;
+    cout << "The player removing the last stick wins!" << endl;
+    cout << endl;
+    
+    bool playing = true;
+    int move, numSticks;
+    
+    cout << "Enter the amount of sticks to play with: ";
+    cin >> numSticks;
+    
+    while (numSticks < 5 || numSticks > 100)
+    {
+        cout << "Choose a number between 5 and 100 to play: ";
+        cin >> numSticks;
+    }
+    cout << endl;
+    
+    cout << "Current game looks like this:" << endl;
+    cout << endl;
+    for (int i = 0; i < numSticks; i++)
+    {
+        cout << "| ";
+    }
+    cout << endl;
+    cout << endl;
+    
+    while ( playing )
+    {
+        cout << "Player 1, it's your turn!" << endl;
+        cin >> move;
+        cout << endl;
+        
+        while (move < 1 || move > 3 || move > numSticks)
+        {
+            cout << "Invalid number, please try again: " << endl;
+            cin >> move;
+            cout << endl;
+        }
+        
+        numSticks -= move;
+        for (int i = 0; i < numSticks; i++)
+        {
+            cout << "| ";
+        }
+        cout << endl;
+        
+        if (numSticks == 0)
+        {
+            cout << "You've won Player 1!" << endl;
+            break;
+        }
+        
+        cout << "Player 2, it's your turn!" << endl;
+        cin >> move;
+        cout << endl;
+        
+        while (move < 1 || move > 3 || move > numSticks)
+        {
+            cout << "Invalid number, please try again: " << endl;
+            cin >> move;
+            cout << endl;
+        }
+        numSticks -= move;
+        for (int i = 0; i < numSticks; i++)
+        {
+            cout << "| ";
+        }
+        cout << endl;
+        
+        if (numSticks == 0)
+        {
+            cout << "You've won Player 2!" << endl;
+            break;
+        }
+    }
+    return 0;
+}
+
